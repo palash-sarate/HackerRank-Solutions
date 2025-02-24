@@ -25,42 +25,21 @@ func isPalindrome(s string) bool {
     }
     return true
 }
-func pointer2string(pointers []int, s string) string {
-    substring := ""
-    for i := 0; i < len(pointers); i++ {
-        substring += string(s[pointers[i]])
-    }
-    return substring
-}
+
 func shortPalindrome(s string) int32 {
     s_len := len(s)
     // Write your code here
     n := 4
     pointers := make([]int, n) // Create a slice of length n
-    counter := int32(0);
-    // initialize pointers
-    for i := range n {
+	counter := int32(0);
+    for i := 0; i < n; i++ {
         pointers[i] = i // Assign consecutive values
     }
     
-    for pointers[0] <= s_len - n {
-        substring := pointer2string(pointers, s);
-        if isPalindrome(substring) {
-            counter++
-        }
-        // Move the last pointer forward
-        pointers[n-1]++
-        // Adjust pointers if necessary
-        for i := n - 1; i > 0; i-- {
-            if pointers[i] >= s_len - (n - 1 - i) {
-                pointers[i-1]++
-                for j := i; j < n; j++ {
-                    pointers[j] = pointers[j-1] + 1
-                }
-            }
-        }
-    }
-    return counter
+    for pointers[0] == s_len - n + 1{
+        
+    } 
+return counter
 }
 
 func main() {
